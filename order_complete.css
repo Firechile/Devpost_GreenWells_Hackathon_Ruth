@@ -1,0 +1,389 @@
+/* order_complete.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.order-complete-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.order-header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #1e3a5f;
+}
+
+.user-info {
+    color: #64748b;
+    font-weight: 500;
+}
+
+/* Progress Bar */
+.progress-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    position: relative;
+}
+
+.progress-bar::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #e0e6ed;
+    z-index: 1;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #e0e6ed;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+.step-label {
+    font-size: 12px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.progress-step.completed .step-number {
+    background: #10b981;
+    color: white;
+}
+
+.progress-step.active .step-number {
+    background: #ff9800;
+    color: white;
+    transform: scale(1.1);
+}
+
+.progress-step.active .step-label {
+    color: #ff9800;
+    font-weight: 600;
+}
+
+/* Main Container */
+.order-complete-container {
+    flex: 1;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    width: 100%;
+}
+
+/* Success Content */
+.success-content {
+    text-align: center;
+    background: white;
+    border-radius: 20px;
+    padding: 50px 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.success-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: bounce 1s ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-20px);}
+    60% {transform: translateY(-10px);}
+}
+
+.success-content h1 {
+    color: #1e3a5f;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.success-message {
+    color: #64748b;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* Order Info Grid */
+.order-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.info-card, .timeline-card {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: left;
+}
+
+.info-card h3, .timeline-card h3 {
+    color: #1e3a5f;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #e8ecef;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+/* Timeline */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.timeline-item.completed .timeline-marker {
+    background: #10b981;
+    color: white;
+}
+
+.timeline-item.active .timeline-marker {
+    background: #ff9800;
+    color: white;
+    transform: scale(1.1);
+}
+
+.timeline-marker {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #e0e6ed;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.timeline-content {
+    flex: 1;
+}
+
+.timeline-content strong {
+    display: block;
+    color: #1e3a5f;
+    margin-bottom: 4px;
+}
+
+.timeline-content span {
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* Notification Card */
+.notification-card {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+    border: 1px solid #ffecb5;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.notification-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.notification-content h4 {
+    color: #856404;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.notification-content p {
+    color: #856404;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.notification-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 14px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 180px;
+    justify-content: center;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ff9800 0%, #ff6b00 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+}
+
+.btn-secondary {
+    background: #1e3a5f;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #2c5282;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: #64748b;
+    border: 2px solid #e0e6ed;
+}
+
+.btn-outline:hover {
+    background: #f8f9fa;
+    border-color: #64748b;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .order-info-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .btn {
+        min-width: auto;
+        width: 100%;
+    }
+    
+    .success-content {
+        padding: 30px 20px;
+    }
+    
+    .success-content h1 {
+        font-size: 2rem;
+    }
+    
+    .progress-bar {
+        margin-bottom: 30px;
+    }
+    
+    .step-label {
+        font-size: 10px;
+    }
+    
+    .notification-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+}
+
+/* Print Styles for Invoice */
+@media print {
+    .order-header,
+    .progress-bar,
+    .action-buttons,
+    .notification-card {
+        display: none;
+    }
+    
+    .success-content {
+        box-shadow: none;
+        padding: 0;
+    }
+}
