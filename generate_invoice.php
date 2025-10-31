@@ -1,10 +1,13 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 require_once 'config.php';
 
 // Define the FPDF font path before including fpdf.php
 define('FPDF_FONTPATH', 'fpdf/font/');
 
-require 'fpdf\fpdf.php'; // Ensure fpdf.php is inside /fpdf folder
+require 'fpdf/fpdf.php'; // Ensure fpdf.php is inside /fpdf folder
 
 $order_id = isset($_GET['order_id']) ? intval($_GET['order_id']) : 0;
 
@@ -21,7 +24,7 @@ $stmt = $conn->prepare("
         o.total_price,
         o.order_status,
         o.order_date,
-        o.delivery_option
+        o.delivery_option,
         c.full_address,
         c.payment_method,
         c.special_instructions,

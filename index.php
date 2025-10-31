@@ -20,7 +20,8 @@ if (isset($_SESSION['signup_error'])) {
 }
 ?>
   <div class="wrapper">
-   <h1>SignUp</h1>
+   <h1>GasConnect</h1>
+   <h2>Register</h2>
    <p id="error__message"></p>
    <form id="form" action="login_register.php" method="post">
     <div>
